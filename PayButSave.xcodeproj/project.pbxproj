@@ -115,21 +115,18 @@
 		A7F42C051FB4B552003E291B /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				A75FBF2B1FBB2827004A86EA /* checkedSquare.png */,
-				A75FBF2A1FBB2824004A86EA /* square.png */,
-				A75FBEE41FBA3E63004A86EA /* ImagePayButSave.png */,
 				A7F42C061FB4B552003E291B /* AppDelegate.swift */,
-				A7F42C081FB4B552003E291B /* HomeViewController.swift */,
 				A7F42C0A1FB4B552003E291B /* Main.storyboard */,
 				A7F42C0D1FB4B552003E291B /* Assets.xcassets */,
 				A7F42C0F1FB4B552003E291B /* LaunchScreen.storyboard */,
 				A7F42C121FB4B552003E291B /* Info.plist */,
+				A7F42C081FB4B552003E291B /* HomeViewController.swift */,
 				A73B6C951FBB951600A6758F /* CategoryViewController.swift */,
 				A78749791FC479000081A302 /* PayeesViewController.swift */,
 				A72F00351FC5E591008BB125 /* PayeeTableViewCell.swift */,
 				A73B6C531FBB533400A6758F /* PayeeDetailViewController.swift */,
-				A73B6C511FBB519700A6758F /* Model.swift */,
-				A72F00331FC53B10008BB125 /* Payees.swift */,
+				A7FBFAF4204FA408005DF96D /* DataClasses */,
+				A7FBFAF3204FA3DD005DF96D /* Images */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -150,6 +147,25 @@
 				A7F42C281FB4B553003E291B /* Info.plist */,
 			);
 			path = FinalProjectUITests;
+			sourceTree = "<group>";
+		};
+		A7FBFAF3204FA3DD005DF96D /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A75FBF2B1FBB2827004A86EA /* checkedSquare.png */,
+				A75FBF2A1FBB2824004A86EA /* square.png */,
+				A75FBEE41FBA3E63004A86EA /* ImagePayButSave.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		A7FBFAF4204FA408005DF96D /* DataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A73B6C511FBB519700A6758F /* Model.swift */,
+				A72F00331FC53B10008BB125 /* Payees.swift */,
+			);
+			path = DataClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +250,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A7F42BFE1FB4B552003E291B /* Build configuration list for PBXProject "Pay but Save" */;
+			buildConfigurationList = A7F42BFE1FB4B552003E291B /* Build configuration list for PBXProject "PayButSave" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -559,7 +575,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7F42BFE1FB4B552003E291B /* Build configuration list for PBXProject "Pay but Save" */ = {
+		A7F42BFE1FB4B552003E291B /* Build configuration list for PBXProject "PayButSave" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7F42C291FB4B553003E291B /* Debug */,

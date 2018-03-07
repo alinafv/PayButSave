@@ -17,7 +17,6 @@ class Payees: NSObject, NSCoding{
     var monthlyBalance: Double!
 	var isPaid: Bool!
     
-	
 	init(_ payeeName: String, _ type: String, _ dueDate: String, _ monthlyExpenses: Double, _ isPaid: Bool) {
 		self.payeeName = payeeName
 		self.type = type
@@ -26,7 +25,7 @@ class Payees: NSObject, NSCoding{
         //self.totalBalance = totalBalance + monthlyExpenses
 		self.isPaid =  isPaid
 	}
-	//MARK: - NSCoding -
+	
 	required init(coder aDecoder: NSCoder) {
 		payeeName = aDecoder.decodeObject(forKey: "payeeName") as! String
 		type = aDecoder.decodeObject(forKey: "type") as! String

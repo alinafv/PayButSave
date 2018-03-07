@@ -13,8 +13,7 @@ class Model {
     fileprivate let payeeKey = "PayeeSettings" // for payee-setting pair
 	fileprivate let takeHomePayKey = "TakeHomePay"
 	
-	
-	
+	//initializing variables needed
 	fileprivate var categoriesAmount = ["utilities" : "0", // stores budget by category
 	                                    "housing" : "0",
 	                                    "saving" : "0",
@@ -22,9 +21,7 @@ class Model {
 	                                    "personalCare" : "0",
 	                                    "consumerDebt" : "0",
 	                                    "entertainment" : "0"]
-	
 	fileprivate var payees: [Payees] = []// stores payee-setting
-	
 	fileprivate var takeHomePay: Double = 0.0
 
     // initializes the Model
@@ -45,8 +42,8 @@ class Model {
 	    if let decodedPayees = UserDefaults.standard.object(forKey: payeeKey) as? NSData {
 			payees =  NSKeyedUnarchiver.unarchiveObject(with: decodedPayees as Data) as! [Payees]
 	     }
-	
     }
+    
 	//**** TakeHomePay data ******
     func getTakeHomePay() -> Double {
         return takeHomePay
@@ -65,7 +62,6 @@ class Model {
     
 	//***** Category Data *******
 	
-	// returns
 	func getBudgetAtCategory(_ category: String) -> String? {
 		return categoriesAmount[category]
 	}
@@ -105,10 +101,9 @@ class Model {
 	
 	// deletes a payee given an index
 	func deletePayeeAtIndex(_ index: Int) {
-		let _ = payees // hack to fix iOS 8.1.x bug
+		let _ = payees
 		payees.remove(at: index)
 		updateUserDefaultsPayees()
-		
 	}
 	
 	// update user defaults with current payee's settings
@@ -118,11 +113,8 @@ class Model {
 		userDefaults.synchronize() // force immediate save to device
 	}
 	
-	// save a tag-query pair
 	func savePayee(_ payee: Payees){
-	
 		payees.append(payee) // stores payee in array
-		
 		updateUserDefaultsPayees()
 	}
 	

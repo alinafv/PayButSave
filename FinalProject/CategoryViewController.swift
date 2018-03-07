@@ -18,7 +18,6 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFieldConsumerDebt: UITextField!
     @IBOutlet weak var txtFieldEntertainment: UITextField!
 	@IBOutlet weak var btnSave: UIButton!
-    
     @IBOutlet weak var txtViewNotifications: UITextView!
     
 	var myModel: Model!
@@ -45,7 +44,7 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnSave.layer.cornerRadius = 5
+       
 		txtFieldUtilities.text = myModel.getBudgetAtCategory("utilities")
 		txtFieldHousing.text = myModel.getBudgetAtCategory("housing")
 		txtFieldSaving.text = myModel.getBudgetAtCategory("saving")
@@ -53,11 +52,13 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
 		txtFieldPersonalCare.text = myModel.getBudgetAtCategory("personalCare")
 		txtFieldConsumerDebt.text = myModel.getBudgetAtCategory("consumerDebt")
 		txtFieldEntertainment.text = myModel.getBudgetAtCategory("entertainment")
-        
+       
+        //adding done button to the keyboard and setting some button styles
         addinputAccessories()
-        
+        btnSave.layer.cornerRadius = 5
         self.navigationController?.navigationBar.tintColor = UIColor(red: 12.0/255.0, green: 126.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     }
+    
     func addinputAccessories(){
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -81,7 +82,6 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.view.endEditing(true)
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,63 +101,19 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
     
     
     func showNotifications() {
-       
         if myModel.count != 0 {
-            
             var expenses = 0.0
             var isPaid = 0.0
             for i in 0...myModel.count-1{
-               
                 expenses += myModel.payeeAtIndex(i).monthlyBalance
                 if myModel.payeeAtIndex(i).isPaid{
                     isPaid += myModel.payeeAtIndex(i).monthlyBalance
                 }
-                
-               /* if !myModel.payeeAtIndex(i).isPaid{
-                    let dDate = Int(myModel.payeeAtIndex(i).dueDate)
-                    let date = Date()
-                    let calendar = Calendar.current
-                    let day = calendar.component(.day, from: date)
-                    let daysLeft = dDate! - Int (day)
-                    
-                    txtViewNotifications.text.append("\n**" + myModel.payeeAtIndex(i).payeeName + " has not been paid. " )
-                    if daysLeft > 0 {
-                        
-                        txtViewNotifications.text.append( String (daysLeft) + " days left until the due Date  \n")
-                    }
-                    else {
-                        
-                         txtViewNotifications.text.append("You are " + String(abs(daysLeft)) + " days late to pay this bill. \n")
-                    }
-                }
-                
-               // To show notifications related with the budget
-                
-               if dictionarySum[myModel.payeeAtIndex(i).type] {
-                    dictionarySum[myModel.payeeAtIndex(i).type] = dictionarySum[myModel.payeeAtIndex(i).type]! + myModel.payeeAtIndex(i).monthlyBalance
-                }
-                
-                
-            }
-            for j in ["groceries", "personalCare", "consumerDebt", "entertainment"]{
-                
-                if dictionarySum[j]! > 0.0 {
-                    
-                    txtViewNotifications.text.append("**\n" + String(dictionarySum[j]!) + " dollars left from the budget  \n")
-                }
-                else {
-                    
-                    txtViewNotifications.text.append("**\nYou are " + String(abs(dictionarySum[j]!)) + " dollars over the budget. \n")
-                    
-                 }
-            }*/
         }
         txtViewNotifications.text.append( "\n** $" + String (expenses) + " has been spent of a total of: $" + String (myModel.getTakeHomePay()))
         txtViewNotifications.text.append( "\n** $" + String(myModel.getTakeHomePay() - expenses) + " left." )
         txtViewNotifications.text.append( "\n** $" + String(isPaid) + " has been paid and $" + String(myModel.getTakeHomePay() - isPaid) + " left.")
 
-            txtViewNotifications.text.append( "\n ConsumerDebt includes: \n1- gas-$200 \n2- Cuba-$200 \n3- lunch-$60 \n4- adobe-$30 \n5- hulu & neflix-$26 \n6- hair dye-$15")
-            
       }
         
     }

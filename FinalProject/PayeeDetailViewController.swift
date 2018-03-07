@@ -12,7 +12,6 @@ class PayeeDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     @IBOutlet weak var lblType: UILabel!
     @IBOutlet weak var txtFieldType: UITextField!
-    
     @IBOutlet weak var pkrType: UIPickerView!
     let categories = ["Utilities", "Housing", "Saving", "Groceries","Personal Care","Consumer Debt","Entertainment" ]
     @IBOutlet weak var txtFieldPayeeName: UITextField!
@@ -21,10 +20,9 @@ class PayeeDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
 	@IBOutlet weak var stepper: UIStepper!
 	@IBOutlet weak var switchPaid: UISwitch!
 	@IBOutlet weak var btnSave: UIBarButtonItem!
-	
     @IBOutlet weak var btnDelete: UIButton!
+    
     var model:Model!
-	
 	var detailItem: Int = 0
 	var isDetail = true
     
@@ -78,7 +76,6 @@ class PayeeDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
 		self.performSegue(withIdentifier: "unwindToPayee", sender: self)
 	}
 
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
         pkrType.isHidden = true;
@@ -93,10 +90,11 @@ class PayeeDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         self.txtFieldPayeeName.delegate = self
         self.txtFieldExpenses.delegate = self
         
-       
+        //adding done button to the keyboard
         addinputAccessories()
         
     }
+    
     func addinputAccessories(){
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -136,15 +134,12 @@ class PayeeDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
 	}
     
     func configureView() {
-        
         // Update the user interface for the detail item.
-        
         txtFieldPayeeName.text = model.payeeAtIndex(detailItem).payeeName
         txtFieldType.text = model.payeeAtIndex(detailItem).type
         txtFieldDueDate.text = model.payeeAtIndex(detailItem).dueDate
         txtFieldExpenses.text = String (model.payeeAtIndex(detailItem).monthlyBalance)
         switchPaid.setOn(model.payeeAtIndex(detailItem).isPaid, animated: true)
-        
     }
     
   

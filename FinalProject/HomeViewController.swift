@@ -11,9 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txtFieldPay: UITextField!
-    
     @IBOutlet weak var btnContinue: UIButton!
-    
     @IBOutlet weak var btnNewMonth: UIButton!
     @IBOutlet weak var imgView: UIImageView!
     
@@ -26,7 +24,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func startNewModel(_ sender: Any) {
        
-        //restarting variable budgets
+        //reset variables to start a new month
         model.setBudgetAtKey("groceries", "0")
         model.setBudgetAtKey("personalCare", "0")
         model.setBudgetAtKey("consumerDebt", "0")
@@ -40,16 +38,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         txtFieldPay.text = String( model.getTakeHomePay())
         txtFieldPay.delegate = self
+        
+        //setting some button styles
         btnContinue.layer.cornerRadius = 5
         imgView.layer.cornerRadius = 5
     }
    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,7 +74,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
+    //hiding the keyboard when tapping outside
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
   
     
 
