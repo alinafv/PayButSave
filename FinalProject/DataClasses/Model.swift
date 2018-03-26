@@ -128,7 +128,7 @@ class Model {
         for payee in payees {
             payee.monthlyBalance = 0.0
             payee.isPaid = false
-            payee.type = ""
+            //payee.type = ""
 
         }
     }

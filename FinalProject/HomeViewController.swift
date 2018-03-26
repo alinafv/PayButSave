@@ -25,11 +25,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBAction func startNewModel(_ sender: Any) {
        
         //reset variables to start a new month
-        model.setBudgetAtKey("groceries", "0")
+       /* model.setBudgetAtKey("groceries", "0")
         model.setBudgetAtKey("personalCare", "0")
         model.setBudgetAtKey("consumerDebt", "0")
         model.setBudgetAtKey("entertainment", "0")
-        model.updateUserDefaultsCategories()
+        model.updateUserDefaultsCategories()*/
         
         model.restartPayeeAttributes()
         model.updateUserDefaultsPayees()
