@@ -112,7 +112,7 @@ class CategoryViewController: UITableViewController, UITextFieldDelegate {
         }
         txtViewNotifications.text.append( "\n** $" + String (expenses) + " has been spent of a total of: $" + String (myModel.getTakeHomePay()))
         txtViewNotifications.text.append( "\n** $" + String(myModel.getTakeHomePay() - expenses) + " left." )
-        txtViewNotifications.text.append( "\n** $" + String(isPaid) + " has been paid and $" + String(myModel.getTakeHomePay() - isPaid) + " left.")
+        txtViewNotifications.text.append( "\n** $" + String(isPaid) + " has been paid and $" + String(expenses - isPaid) + " left.")
 
       }
         
